@@ -25,6 +25,9 @@ def index():
         except:
             resultado = 'Erro: Entrada inválida'
 
+        if isinstance(resultado, float) and resultado.is_integer():
+            resultado = int(resultado)
+
     return render_template('index.html', resultado=resultado)
 if __name__ == '__main__':
     app.run(debug=True)
